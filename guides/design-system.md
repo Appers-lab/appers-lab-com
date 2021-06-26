@@ -1,4 +1,7 @@
 
+General design system
+=============================================
+
 Web Standards
 ----------------------------------
 We adhere to HTML5 standards, patocularly its semantic usage of elements. So instead of using ```<div>``` for everything we use the more semantically meaninful tags such as ```<article>```, ```<section>```, ```<header>```, ```<menu>```, etc. For a full list of html5 tags and their definition/usage see [chapter 4](https://html.spec.whatwg.org/multipage/#toc-semantics) of web standards. Here are some of these rules:
@@ -176,7 +179,7 @@ Example
 ---------------------------
 Suppose you are tasked to make a page title bar like the following picture:
 
-![alt text](./pic1.png "Logo Title Text 1")
+![alt text](/guides/img/design-guide-1.png "Logo Title Text 1")
 
 **Step 1:** Making the base layout using layer 0 classes. Note that the component can be divided into two parts: 1- the left section (title section) and the right section (menu section). So the base html along with layer 0 layouting would be:
 
