@@ -10,7 +10,7 @@ The tasks are posted in the project page (link given to you through email). Your
 * Commit and push the changes to the branch and make a pull request. Use the same as the task for the pull request.
 * **Assign this pull request to the task (using the right menu when creating the pull request)** Here is a screenshot of the menu:
   
-  ![alt text](guides/img/assigning-PR-to-task.png "Logo Title Text 1")
+  ![alt text](/guides/img/assigning-PR-to-task.png "Logo Title Text 1")
   
 * If you have a general question make a new issue (in the repository) and tag me there.
 * I will review your pull request by writing comments for your lines of code in the pull request. You will find them in the pull request conversation tab. Make the changes as requested in the pull request review and once the changes are ok we will merge it and your task is done.

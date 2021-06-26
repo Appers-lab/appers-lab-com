@@ -14,11 +14,133 @@ It is common to use JSX with react, but modern javascript offers [template liter
 
 The bottomline is you can use react directly in the browser `<script>` without having to use webpack and babel to compile your jsx. In our projects we adopt this new approach over JSX. Note that for the production it is possible to compile the htm template literals into functions calls (similar to jsx), and so removing the overhead of string parsing.   
 
-For a sample in-browser basic react component example see `p1.html` in the [samples folder](/guides/react/samples).
+For a sample in-browser basic react component example see [p1.html](/guides/react/samples/p1.html) in the [samples folder](/guides/react/samples).
+
+p1.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1> Using preact in browser (good for quick testing!) </h1>
+<p style="margin-bottom: 50px"> Hopefully your browser supports latest javascript syntax!</p>
+
+<section>
+    <h2>Below is the element hosting the react component </h2>
+    <span id="host1"></span>
+</section>
+
+<script type="module">
+    import { h, render } from 'https://unpkg.com/preact@latest?module';
+    import { useState, useEffect } from 'https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module';
+    import htm from 'https://unpkg.com/htm?module';
+
+    // Initialize htm with Preact
+    const html = htm.bind(h);
+
+    // your react component
+    function Something(props) {
+
+        // counter state
+        const [counter, setCounter] = useState(1);
+
+        const handleClick = () => setCounter(counter+1);
+
+        return html`
+        <h2>Hello ${props.name}!</h2>
+        <button onClick=${handleClick}> Count! (${counter})</button>
+        `;
+    }
+
+    // rendering the component on the host element
+    var host = document.getElementById("host1")
+    render(html`<${Something} name="World" />`, host);
+</script>
+
+</body>
+</html>
+```
 
 Web component: Connecting react to the outside html world
 ------------------------------------------------------------
-In some tasks you need to write a web component using react. Sample file `p2.html` shows a sample counter component that emits `onchange` event when you press the button three times, and its value is equal to the counter. 
+In some tasks you need to write a web component using react. Sample file [p2.html](/guides/react/samples/p2.html) shows a sample counter component that emits `onchange` event when you press the button three times, and its value is equal to the counter. 
+
+p2.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1> A react web component that triggers on click event to the outside worls </h1>
+<p style="margin-bottom: 50px"> Hopefully your browser supports latest javascript syntax!</p>
+
+<section>
+    <h2>Below is the element hosting the react component </h2>
+    <span id="host1" onchange="done(this)"></span>
+</section>
+
+<script>
+    // on click handler for the html element hosting teh react component
+
+    function done(el) {
+        alert(`Ok! Done! you clicked 3 times! The host value is ${el.value}`);
+
+    }
+
+</script>
+
+<!-- module script for teh react part -->
+<script type="module">
+
+    import { h, render } from 'https://unpkg.com/preact@latest?module';
+    import { useState, useEffect } from 'https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module';
+    import htm from 'https://unpkg.com/htm?module';
+
+    // Initialize htm with Preact
+    const html = htm.bind(h);
+
+    // your react component
+    function Something(props) {
+
+        // counter state
+        const [counter, setCounter] = useState(1);
+
+        // set element value to 1;
+        props.host.value = 1;
+
+        const handleClick = () => {
+            props.host.value = counter;
+            if (counter <= 2 )
+                setCounter(counter+1);
+            else {
+                setCounter(0);
+                props.host.dispatchEvent(new Event("change"));
+            }
+        }
+
+        return html`
+        <h2>Hello ${props.name}!</h2>
+        <p> After pressing the button 3 times an on-change event will be sent to the html world!</p>
+        <button onClick=${handleClick}> Count! (${counter})</button>
+        `;
+    }
+
+    // rendering the component on the host element. Note we passed a reference to the host element as a prop
+    var host = document.getElementById("host1");
+    render(html`<${Something} name="Payam" host=${host} />`, host);
+</script>
+
+</body>
+</html>
+```
 
 As you can see in the example `p2.html`, our general approach to make a web component is: 
 
