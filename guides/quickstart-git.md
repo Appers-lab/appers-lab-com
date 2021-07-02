@@ -23,7 +23,7 @@ You may need to enter your username/password (your github account).
 
 >>Very soon Github will no longer accept username/password ... you will need to use TOKEN!
 
-Note that using `git checkout` you can switch between branches. Before doing project make sure you are in your branch. To double-check which branch you are in, from the project root run:
+Note that using `git checkout` you can switch between branches. Before doing a project make sure you are in your branch. To double-check which branch you are in, from the project root run:
 
 ```
 git branch
@@ -41,7 +41,7 @@ git commit -m "your commit message"
 git push
 ```
 
-Then using browser login to your bitbucket account, go to this repository section and create a "pull request". When you create a pull requet, I (and others) can see what changes you made in your branch and give you feedback. You may need to make additional changes and push again (using the commands above). When we approve your changes then we will "merge" your changes into the main branch, and basically your code will be incuded in the main version of the program.
+Then using browser login to your bitbucket account, go to this repository section and create a "pull request". When you create a pull request, I (and others) can see what changes you made in your branch and give you feedback. You may need to make additional changes and push again (using the commands above). When we approve your changes then we will "merge" your changes into the main branch, and basically your code will be included in the main version of the program.
 
 ### Pull changes - conflict resolution
 
