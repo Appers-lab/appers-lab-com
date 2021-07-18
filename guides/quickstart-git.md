@@ -33,7 +33,7 @@ The above command shows a list of branches downloaded, and the current branch ha
 
 
 ### Commit/Push changes
-Once you made your changes you need to push the changes to the bitbucket repository. From the project root folder:
+Once you made your changes you need to push the changes to the repository. From the project root folder:
 
 ```
 git add .
@@ -41,7 +41,7 @@ git commit -m "your commit message"
 git push
 ```
 
-Then using browser login to your bitbucket account, go to this repository section and create a "pull request". When you create a pull request, I (and others) can see what changes you made in your branch and give you feedback. You may need to make additional changes and push again (using the commands above). When we approve your changes then we will "merge" your changes into the main branch, and basically your code will be included in the main version of the program.
+Then using browser login to your repository account, go to this repository section and create a "pull request". When you create a pull request, I (and others) can see what changes you made in your branch and give you feedback. You may need to make additional changes and push again (using the commands above). When we approve your changes then we will "merge" your changes into the main branch, and basically your code will be included in the main version of the program.
 
 ### Pull changes - conflict resolution
 
