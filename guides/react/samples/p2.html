@@ -14,7 +14,6 @@
     <span id="host1" onchange="done(this)"></span>
 </section>
 
-
 <script>
     // on click handler for the html element hosting teh react component
 
@@ -24,7 +23,6 @@
     }
 
 </script>
-
 
 <!-- module script for teh react part -->
 <script type="module">
@@ -66,8 +64,6 @@
     var host = document.getElementById("host1");
     render(html`<${Something} name="Payam" host=${host} />`, host);
 </script>
-
-
 
 </body>
 </html>

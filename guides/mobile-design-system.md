@@ -27,7 +27,7 @@ Using developer tools to view your mobile design
 --------------------------------------------------
 When designing mobile pages you can use the browser developer tools to get a *mobile view* of your design. You can choose different mobile devices (-> different screen sizes) and check how your design looks on them. Here is an screenshot:
 
-![alt text](./dev-tools-mobile.png "Developer tools for mobile pages")
+![alt text](/guides/img/dev-tools-mobile.png "Developer tools for mobile pages")
 
 
 
